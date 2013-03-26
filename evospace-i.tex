@@ -147,8 +147,23 @@ author's names removed\\
 \begin{abstract}
 	
 
-This work presents EvoSpace-Interactive, an open source framework for the development of collaborative-interactive evolutionary algorithms for art and design. The main components of the framework are i) Evospace, a population store for the development of
-cloud-based evolutionary algorithms, implemented using Redis key-value server and ii) Interactive, a Django framework   application where end-users collaborate in a social network sharing, collecting, rating and ultimately evolving individuals. Individuals are presented as multimedia elements (images, animations, sound) using the Processing programming language.    Details of the design are presented and two example applications are shown to illustrate the potential of the tool.
+This work presents EvoSpace-Interactive, an open source framework for
+the development of collaborative-interactive evolutionary algorithms
+for art and design. The main components of the framework are i)
+Evospace, a population store for the development of % por qué no
+                                % EvoStore? - JJ
+cloud-based evolutionary algorithms, implemented using Redis key-value
+server and ii) Interactive, % por qué no EvoAgent? La división entre
+                            % los dos nombres no me parece muy
+                            % descriptiva- JJ
+an application based on the Django framework that allows 
+ end-users to collaborate in a social network sharing, collecting,
+ rating and ultimately evolving individuals. Individuals are presented
+ as multimedia elements (images, animations, sound clips) using the
+ Processing programming language. Details of the design are presented
+ and two example applications that illustrate the potential of
+ the tool are shown. % No me gusta shown. Explained? Presented?
+                     % Described? - JJ
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -167,8 +182,9 @@ cloud-based evolutionary algorithms, implemented using Redis key-value server an
 \section{Architecture}
 The goal of this work is to develop an open source framework for Web and Cloud-based C-IEA systems,
 using current web standards and libraries for mobile devices. 
-Developers of C-IEA applications are liberated from the need of designing and programming a platform for distributed user collaboration.
-Only three components of the framework  must to be defined for each application, marked with double lines in Figure \ref{fig:arch}; these are: an \emph{individual} representation; a \emph{processing script} that renders each individual; and a \emph{worker} script that encodes the evolutionary operators will need to be defined according to the representation and problem domain.
+Developers of C-IEA applications are liberated from the need to design and program a platform for distributed user collaboration.
+Only three components of the framework  must to be defined for each
+application (marked with double lines in Figure \ref{fig:arch}), namely: an \emph{individual} representation; a \emph{processing script} that renders each individual; and a \emph{worker} script that encodes the evolutionary operators will need to be defined according to the representation and problem domain.
 However, in future versions of the framework much of this work could be predefined, but also left open for advanced users to change as they require.
 What the framework offers for free is: a central repository for the population implemented as an EvoSpace service; a Web Application script implemented using Django, a mature full stack Web Framework with a BSD license developed in Python.
 
@@ -183,14 +199,43 @@ The main components of the EvoSpace-Interactive are shown in Figure~\ref{fig:arc
 \end{figure*}
 
 
-\section{EvoSpace}
-The EvoSpace model is presented in detail in \cite{EvoSpace}, only brief description of the functionality related to this work is given next.  EvoSpace is inspired on the Linda language by Gelernter and Carriero \cite{linda}. Linda is a model of coordination and communication among several parallel processes operating upon objects stored in and retrieved from a shared, virtual, associative memory called tuplespace. In a tuplespace, tuples are read and removed by processes; once a tuple is taken, no other process can read it until it is written back. EvoSpace consists of two main components (see figure~\ref{fig:evo}): (i) the EvoSpace container
-that stores the evolving population and (ii) remote clients called EvoWorkers, which execute the actual evolutionary process, while EvoSpace acts only as a population repository. In a basic configuration, EvoWorkers take a random sample of the population, and use it as the initial population for a local EA executed on the client machine. When taken by an EvoWorker, individuals  remain in a phantom state until their sample is returned. If an EvoWorker does not returns a sample in a certain amount of time, for instance because of a lost connection; individuals are re-spawned (re-inserted) by the ReInsertionManager. Similar to video games in which characters once killed are re-spawned after a certain time. This can also happen when the EvoSpace container starves or the population size is below some threshold. Figure~\ref{fig:evo} illustrates the main components and dataflow within EvoSpace.
+\section{EvoSpace} % debería ser EvoSpace-i - JJ
+The EvoSpace model is presented in detail in \cite{EvoSpace}, only
+brief description of the functionality related to this work is given
+next.  EvoSpace is inspired on the Linda language by Gelernter and
+Carriero \cite{linda}; Linda is a model of coordination and
+communication among several parallel processes operating upon objects
+stored in and retrieved from a shared, virtual, associative memory
+called {\em tuplespace}. In a tuplespace, tuples are read and removed by processes; once a tuple is taken, no other process can read it until it is written back. EvoSpace consists of two main components (see figure~\ref{fig:evo}):\begin{itemize}
+\item the EvoSpace container
+that stores the evolving population and
+\item remote clients called
+EvoWorkers, % ajústate a la terminología del abstract, "Evospace" +
+            % "interactive" o "EvoStorage + EvoWorkers" - JJ
+which execute the actual evolutionary process, while EvoSpace acts
+only as a population repository. 
+\end{itemize}
+
+In a basic configuration, EvoWorkers take a random sample of the
+population, and use it as the initial population for a local EA
+executed on the client machine. When taken by an EvoWorker,
+individuals  remain in a phantom state until their sample is
+returned. If an EvoWorker does not returns a sample in a certain
+amount of time, for instance because of a lost connection; individuals
+are re-spawned (re-inserted) by the ReInsertionManager. Similar to
+video games in which characters once killed are re-spawned after a
+certain time. This can also happen when the EvoSpace container starves
+or the population size is below some threshold. Figure~\ref{fig:evo}
+illustrates the main components and dataflow within EvoSpace. % Ni lo
+                                % explicas aquí ni en el pie de
+                                % figura. Deberías explicarlo un poco
+                                % más - JJ
 
 For this version of EvoSpace-Interactive, a new type of Worker is needed: Human users. Users are responsible for subjectively evaluating individuals, the process is depicted in Figure~\ref{fig:evoInteractive}: (i) first a random sample of six individuals are taken from EvoSpace, (ii) the chromosome of each individual parameterizes a Processing script, that renders to the user, (iii) users select those individuals they like, this is stored in each individual's data, (iv) finally the sample is returned to EvoSpace. The fitness assigned to each individual can depend on the ratings given by a certain number of users. In this case the EvoWorker process is replaced  by an \texttt{Evolve} method, that is executed after a certain number of samples have been returned. 
 Unlike the normal operation of EvoSpace, when a User takes a sample of users, these are returned with their identity unchanged, other than the rating added by the current user. The internal representation of individuals is presented next.
 
-\paragraph{Individuals.}
+\paragraph{Individuals.} % Por qué paragraph y no subsection? Además,
+                         % tiene dos puntos - JJ
 As stated above, the objects stored in EvoSpace are individuals in an EA.
 Explicitly, individuals are stored as \emph{dictionaries}, an abstract data type that represents a collection of unique keys and values with a one to one association. In this case, keys represent specific properties of each object and the values can be of different types, such as
 numbers, strings, lists, tuples or other dictionaries.

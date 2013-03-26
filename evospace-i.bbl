@@ -1,3 +1,47 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Musart}
+M.~Garcia-Valdez, L.~Trujillo, F.~Fern{\'a}ndez~de Vega, J.~Merelo~Guerv{\'o}s,
+  and G.~Olague.
+\newblock {EvoSpace-Interactive: A Framework to Develop Distributed
+  Collaborative-Interactive Evolutionary Algorithms for Artistic Design}.
+\newblock In J.~C.~A. Machado, Penousal;~McDermott, editor, {\em Evolutionary
+  and Biologically Inspired Music, Sound, Art and Design}, volume 7834 of {\em
+  Lecture Notes in Computer Science}, pages 121--130. Springer Berlin
+  Heidelberg, 2013.
+
+\bibitem{EvoSpace}
+M.~Garc{\'i}a-Valdez, L.~Trujillo, F.~Fern{\'a}ndez~de Vega, J.~J.
+  Merelo~Guerv{\'o}s, and G.~Olague.
+\newblock {EvoSpace: A Distributed Evolutionary Platform Based on the Tuple
+  Space Model}.
+\newblock In A.~Esparcia-Alc{\'a}zar, editor, {\em Applications of Evolutionary
+  Computation}, volume 7835 of {\em Lecture Notes in Computer Science}, pages
+  499--508. Springer Berlin Heidelberg, 2013.
+
+\bibitem{linda}
+D.~Gelernter.
+\newblock Generative communication in linda.
+\newblock {\em ACM Trans. Program. Lang. Syst.}, 7(1):80--112, Jan. 1985.
+
+\bibitem{hammer2011oauth}
+E.~Hammer-Lahav, D.~Recordon, and D.~Hardt.
+\newblock The oauth 2.0 authorization protocol.
+\newblock {\em draft-ietf-oauth-v2-18}, 8, 2011.
+
+\bibitem{django}
+A.~Holovaty and J.~Kaplan-Moss.
+\newblock Introduction to django.
+\newblock In {\em The Definitive Guide to Django}, pages 3--9. Apress, 2008.
+
+\bibitem{Pearson:2011ti}
+M.~Pearson.
+\newblock {\em {Generative Art}}.
+\newblock Manning Publications, pap/psc edition, July 2011.
+
+\bibitem{Reas:2007wp}
+C.~Reas and B.~Fry.
+\newblock {\em A programming handbook for visual designers and artists}.
+\newblock The MIT Press, 2007.
 
 \end{thebibliography}

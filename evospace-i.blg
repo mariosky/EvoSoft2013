@@ -2,47 +2,60 @@ This is BibTeX, Version 0.99d (TeX Live 2011)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: evospace-i.aux
 The style file: abbrv.bst
-I found no \citation commands---while reading file evospace-i.aux
 Database file #1: evospace-i.bib
-You've used 0 entries,
+Repeated entry---line 149 of file evospace-i.bib
+ : @book{Pearson:2011ti
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 171 of file evospace-i.bib
+ : @book{Reas:2007wp
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 701 of file evospace-i.bib
+ : @article{linda
+ :               ,
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Machado, Penousal; McDermott, James; Carballal, Adrian" for entry Musart
+while executing---line 1090 of file abbrv.bst
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            496 strings with 3709 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            549 strings with 5034 characters,
+and the built_in function-call counts, 2627 in all, are:
+= -- 251
+> -- 122
+< -- 5
++ -- 49
+- -- 40
+* -- 181
+:= -- 430
+add.period$ -- 24
+call.type$ -- 7
+change.case$ -- 39
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 7
+duplicate$ -- 115
+empty$ -- 209
+format.name$ -- 40
+if$ -- 570
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 7
+missing$ -- 9
+newline$ -- 38
+num.names$ -- 18
+pop$ -- 50
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 33
 quote$ -- 0
-skip$ -- 1
+skip$ -- 77
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 127
+swap$ -- 34
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 24
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There was 1 error message)
+while$ -- 24
+width$ -- 8
+write$ -- 83
+(There were 4 error messages)

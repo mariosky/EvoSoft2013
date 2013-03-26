@@ -1,0 +1,57 @@
+#collections
+
+The reason for which we proceeded to develop the collections process was for the purpose of giving the user more sense to work with Shapes application, so that the user will help us evaluate individuals. However basic user information needed, in order to have that information we developed a process of connecting to Facebook, with this we were getting the basic information we’re looking for. Thus if the user gave us access through his Facebook account, the user could add collections and collections add individuals he liked when evaluating the subpopulation that had been provided at the time.
+Some collections process features are:
+1.       If users access through their Facebook account, then the user has the ability to create unlimited collections in Shapes application.
+
+2.       2. A collection consists of a set of individuals selected by the user's taste, in other words the user can add individuals to their own taste when evaluating individuals in the subpopulation that was presented at that time, in the collection has chosen for these individuals.
+
+ 
+The data model.
+
+For the collections data model we design a relational database that consists of four tables these tables are:
+1.       User Table: In this table we have all the basic fields that represent the user such as:
+
+a.       User_id.
+
+b.      User_gender.
+
+c.       User_name.
+
+d.      User_birthday.
+
+e.      User_creationDate.
+
+f.        User_updateDate.
+
+2.       Collection Table: In this table we have fields representing a collection, these fields are:
+
+a.       Collection_id.
+
+b.      Collection_name.
+
+c.       Collection_description.
+
+d.      Collection_creationDate.
+
+e.      Collection_visibility.
+
+3.       User_Collection Table: This table gives us the relationship between user and a collection and the fields that represent this relationship are:
+
+a.       User_id.
+
+b.      Collection_id.
+
+c.       Role
+
+4.       Collection_Individual Table: This table gives us the relationship between uaer, collection and individual  and the fields that represent this table are:
+
+a.       Collection_id
+
+b.      Shape_id
+
+c.       Added_by (User_id)
+
+d.      Date_added
+
+With this relational data model we represent the collections process for Shapes application, where the user can add collections to access the application via their Facebook account and their collections can add individuals to their own taste.

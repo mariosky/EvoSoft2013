@@ -47,7 +47,6 @@
 
 \documentclass{sig-alternate}
 \usepackage{url}
-\sloppy
 
 \begin{document}
 \conferenceinfo{GECCO'13,} {July 6-10, 2013, Amsterdam, The Netherlands.}
@@ -149,8 +148,9 @@ author's names removed\\
 
 Evolutionary art (EvoArt) encompasses a variety of research devoted to the development of evolutionary systems than can help produce artistic artifacts in an automated or semi-automated process. Given the difficulty of evaluating subjective artistic preferences, one of the main approaches used by EvoArt researchers is to use interactive evolution where user input guides de search.
 However, despite the growth of EvoArt over recent years the research area still lacks a comprehensive software tool that can help in the development of EvoArt applications.	
-Therefore, this work presents EvoSpace-Interactive, an open source framework for the development of collaborative-interactive evolutionary algorithms for art and design. The main components of the framework are: (i) \emph{Evospace}, a population store for the development of cloud-based evolutionary algorithms, implemented using Redis key-value server;
-and a (ii) \emph{Web Application} where end-users collaborate in a social network sharing, collecting, rating and ultimately evolving individuals. Individuals are presented as multimedia elements or artistic artifacts (images, animations, sound) using the Processing programming language, a development language specifically aimed at artists. EvoSpace-Interactive is designed to be easy to use and setup, allowing researchers, and more importantly artists, to quickly develop distributed and collaborative EvoArt applications. This paper presents the main details of EvoSpace-Interactive and two example applications to illustrate the potential of the tool.	
+Therefore, this work presents EvoSpace-Interactive, an open source framework for the development of collaborative-interactive evolutionary algorithms for art and design. The main components of the framework are: (i) \emph{Evospace}, a population store for the development of
+	cloud-based evolutionary algorithms, implemented using Redis key-value server;
+	and a (ii) \emph{Web Application} where end-users collaborate in a social network sharing, collecting, rating and ultimately evolving individuals. Individuals are presented as multimedia elements or artistic artifacts (images, animations, sound) using the Processing programming language, a development language specifically aimed at artists. EvoSpace-Interactive is designed to be easy to use and setup, allowing researchers, and more importantly artists, to quickly develop distributed and collaborative EvoArt applications. This paper presents the main details of EvoSpace-Interactive and two example applications to illustrate the potential of the tool.	
 
 %This work presents EvoSpace-Interactive, an open source framework for
 %the development of collaborative-interactive evolutionary algorithms
@@ -161,7 +161,7 @@ and a (ii) \emph{Web Application} where end-users collaborate in a social networ
 %server and ii) Interactive, % por qué no EvoAgent? La división entre
                             % los dos nombres no me parece muy
                             % descriptiva- JJ
-%an application based on the Django framework that allows
+%an application based on the Django framework that allows 
 % end-users to collaborate in a social network sharing, collecting,
 % rating and ultimately evolving individuals. Individuals are presented
 % as multimedia elements (images, animations, sound clips) using the
@@ -275,7 +275,7 @@ Finally, it emphasizes the use of a distributed model, to exploit current trends
 
 \section{Architecture}
 The goal of this work is to develop an open source framework for Web and Cloud-based C-IEA systems,
-using current web standards and libraries for mobile devices.
+using current web standards and libraries for mobile devices. 
 Developers of C-IEA applications are liberated from the need to design and program a platform for distributed user collaboration.
 Only three components of the framework  must to be defined for each
 application (marked with double lines in Figure \ref{fig:arch}), namely: an \emph{individual} representation; a \emph{processing script} that renders each individual; and a \emph{worker} script that encodes the evolutionary operators will need to be defined according to the representation and problem domain.
@@ -283,7 +283,7 @@ However, in future versions of the framework much of this work could be predefin
 What the framework offers for free is: a central repository for the population implemented as an EvoSpace service; a Web Application script implemented using Django, a mature full stack Web Framework with a BSD license developed in Python.
 
 
-The main components of the EvoSpace-Interactive are shown in Figure~\ref{fig:arch}. The Interactive part is a Django \cite{} web-based application, together with a client-side component implemented using JQuery and processingjs Javascript libraries. This application shows users a number of multimedia objects rendered in HTML5 Canvas elements. These multimedia objects are the phenotypes of individuals drawn from the Evospace population store. Evospace is responsible for storing and retrieving the data of each individual. An Evolution Worker is responsible for generating new individuals from a sample taken from EvoSpace. The evolution process is decoupled from the interactive application; thous giving IEC designers the opportunity to define their own variations of the algorithm. In the following sections each component is described in detail, staring with the population store Evospace, and then the Interactive and Collaborative components.
+The main components of the EvoSpace-Interactive are shown in Figure~\ref{fig:arch}. The Interactive part is a Django \cite{} web-based application, together with a client-side component implemented using JQuery and processingjs Javascript libraries. This application shows users a number of multimedia objects rendered in HTML5 Canvas elements. These multimedia objects are the phenotypes of individuals drawn from the Evospace population store. Evospace is responsible for storing and retrieving the data of each individual. An Evolution Worker is responsible for generating new individuals from a sample taken from EvoSpace. The evolution process is decoupled from the interactive application; thous giving IEC designers the opportunity to define their own variations of the algorithm. In the following sections each component is described in detail, staring with the population store Evospace, and then the Interactive and Collaborative components.     
 
 \begin{figure*}[!t]
     \centering
@@ -307,7 +307,7 @@ that stores the evolving population and
 EvoWorkers, % ajústate a la terminología del abstract, "Evospace" +
             % "interactive" o "EvoStorage + EvoWorkers" - JJ
 which execute the actual evolutionary process, while EvoSpace acts
-only as a population repository.
+only as a population repository. 
 \end{itemize}
 
 In a basic configuration, EvoWorkers take a random sample of the
@@ -325,7 +325,7 @@ illustrates the main components and dataflow within EvoSpace. % Ni lo
                                 % figura. Deberías explicarlo un poco
                                 % más - JJ
 
-For this version of EvoSpace-Interactive, a new type of Worker is needed: Human users. Users are responsible for subjectively evaluating individuals, the process is depicted in Figure~\ref{fig:evoInteractive}: (i) first a random sample of six individuals are taken from EvoSpace, (ii) the chromosome of each individual parameterizes a Processing script, that renders to the user, (iii) users select those individuals they like, this is stored in each individual's data, (iv) finally the sample is returned to EvoSpace. The fitness assigned to each individual can depend on the ratings given by a certain number of users. In this case the EvoWorker process is replaced  by an \texttt{Evolve} method, that is executed after a certain number of samples have been returned.
+For this version of EvoSpace-Interactive, a new type of Worker is needed: Human users. Users are responsible for subjectively evaluating individuals, the process is depicted in Figure~\ref{fig:evoInteractive}: (i) first a random sample of six individuals are taken from EvoSpace, (ii) the chromosome of each individual parameterizes a Processing script, that renders to the user, (iii) users select those individuals they like, this is stored in each individual's data, (iv) finally the sample is returned to EvoSpace. The fitness assigned to each individual can depend on the ratings given by a certain number of users. In this case the EvoWorker process is replaced  by an \texttt{Evolve} method, that is executed after a certain number of samples have been returned. 
 Unlike the normal operation of EvoSpace, when a User takes a sample of users, these are returned with their identity unchanged, other than the rating added by the current user. The internal representation of individuals is presented next.
 
 \paragraph{Individuals.} % Por qué paragraph y no subsection? Además,
@@ -339,7 +339,7 @@ A \textbf{chromosome} string, which depends on the EA and the representation use
 The \textbf{fitness} dictionary for each individual; In EvoSpace-Interactive it stores pairs of user's ids and timestamp values, which represent that a user has rated the individual with a like. Currently a user can rate more than one time each individual.
 The \textbf{views} The number of times the individual has been presented to a user. If a user has seen an individual and  did not assigned it a like, this can be used as a probable not-like rating.
 A \textbf{parents} dictionary with identifiers of the individual(s) from which it was produced.
-Finally, a \textbf{GeneticOperator}  string that specifies the operator that produced it.
+Finally, a \textbf{GeneticOperator}  string that specifies the operator that produced it.   
 
 
 Individuals are stored in-memory, using the Redis key-value database. Redis was chosen over a SQL-based management system, or other non-SQL alternatives, because it provides a hash based implementation of sets and queues which are natural data structures for the EvoSpace model. For example, selecting a random key from a set has a complexity of O(1). The logic of EvoSpace is implemented as a python module exposed by the same Django framework used by the web-based application. The EvoSpace web service interacts is called directly by a JQuery script running in the client-side. This is done by a JQuery ajax request, and using the  JSON-RPC protocol.  The EvoSpace module is available with a Simplified BSD License from \url{https://github.com/evoWeb/EvoSpace}.  The components required for the interaction between individuals and users are presented next.
@@ -377,13 +377,13 @@ Although the combination of an HTML5 Canvas element and a Processing script is s
 For instance, images, embedded audio, or other libraries capable of drawing in the Canvas.
 Also, a fallback implementation must be considered for applications intended for non-HTML5 capable browsers.
 
-To create a new C-IEC application, the  rendering script must be defined, and its parameters encoded as a chromosome.
+To create a new C-IEC application, the  rendering script must be defined, and its parameters encoded as a chromosome.    
 
 
 \subsection{Fitness}
 As stated before, the assignment of the fitness for each individual takes into account the evaluation given by several users. Initially in EvoSpace-Interactive users can only give positive evaluations explicitly when they select an individual, giving it a rating of \emph{Like}.
 When a user evaluates a sample of individuals, some (or all) of them will not receive a like, in each case the \texttt{views} property will be incremented by 1. For instance, if an individual has a high number of views with with only two likes, he considered to be  worse than an individual with two views and two likes. The ratio $Likes/Views$ is more informative, but it does not distinguish between an individual with many views and another with only
-one view if they both have zero likes; also views must be >=1 to avoid dividing by zero. Fitness, therefore, it is proposed to be given by $(Likes+1)/(Views+1)$. As a future work more options can be defined, for instance taking into account the number of ``shares'' or the times an individual has been stored in a collection.
+one view if they both have zero likes; also views must be >=1 to avoid dividing by zero. Fitness, therefore, it is proposed to be given by $(Likes+1)/(Views+1)$. As a future work more options can be defined, for instance taking into account the number of ``shares'' or the times an individual has been stored in a collection. 
 
 \subsection{Breeding Process}
 
@@ -421,23 +421,23 @@ The pane also includes a link to the individual's details, the parents, genetic 
 \subsection{Facebook API and OAuth2.0}
 Applications developed with the EvoSpace-Interactive framework must be defined as Facebook Web Applications. Other social networks are going to be enabled in further versions of the framework; but initially Facebook was selected as a Social Network platform for the following reasons:
 \begin{itemize}
-	\item Popularity. Facebook is currently the social network with more active users, with more than 1 billion.
+	\item Popularity. Facebook is currently the social network with more active users, with more than 1 billion. 
 
 	\item Applications. Facebook applications are also common, popular applications like Youtube, Pinterest, Netflix, XBOX Live and Spotify allow users to share their activities.	
 \end{itemize}
-In order to enable the application's collaborative functionality, end-users must be authenticated with their Facebook account. This is done using the OAuth2.0 protocol \cite{hammer2011oauth}. The OAuth 2.0 login flow generates an access token, which you can use to make API calls on behalf of a user. As part of this flow, users also give certain permissions to the application, so it can access their private data. Currently the framework uses the most basic permission, having access only to their public profile and list of friends. The public profile includes their profile picture, username, gender and locale. An important information is the list of friends, that includes which friends also have the application installed.
+In order to enable the application's collaborative functionality, end-users must be authenticated with their Facebook account. This is done using the OAuth2.0 protocol \cite{hammer2011oauth}. The OAuth 2.0 login flow generates an access token, which you can use to make API calls on behalf of a user. As part of this flow, users also give certain permissions to the application, so it can access their private data. Currently the framework uses the most basic permission, having access only to their public profile and list of friends. The public profile includes their profile picture, username, gender and locale. An important information is the list of friends, that includes which friends also have the application installed. 
 
 \subsection{Django Framework Application}
 The Django web development framework \cite{django}, is a set of Python libraries, that provide high-level abstractions of common Web development patterns. In Django a web application consists of different python scripts following a Model-View-Controller (MVC) design pattern. Using a separation of concerns design principle, the application logic is separated in mainly in four scripts:
 \begin{itemize}
 	\item The \texttt{models.py} script contains a class based description of the database schema. These classes are Object-Relational mappers with methods to create, retrieve, update, and delete records in your database using Python code instead of SQL.
-	\item The \texttt{views.py} file contains the business logic for each web page defined as special  ``View'' functions. These functions receive as parameters and http request data, do operations on the model (database) , and return the data to feed HTML generator templates.
+	\item The \texttt{views.py} file contains the business logic for each web page defined as special  ``View'' functions. These functions receive as parameters and http request data, do operations on the model (database) , and return the data to feed HTML generator templates. 
 	\item The \texttt{urls.py} file specifies which view is called for a given URL pattern.
     \item Various HTML template files that describes the design of the page.
     \item \texttt{settings.py} file where the configuration of the project is stored.
 \end{itemize}
 
-In Django, a project can be an aggregation of multiple reusable applications, each incorporating a particular functionality. Each application has its own model, and views. For EvoSpace-Interactive the database model is presented in Figure~\ref{datamodel}. There is a many to one relationship between facebook sessions and users, this is because sessions and access tokens can expire. The database is stored in a PostgreSQL database system. Individuals are not stored in this database, they are stored in a Redis server as JSON text. The model for individual is presented in Figure~\ref{redisModel}
+In Django, a project can be an aggregation of multiple reusable applications, each incorporating a particular functionality. Each application has its own model, and views. For EvoSpace-Interactive the database model is presented in Figure~\ref{datamodel}. There is a many to one relationship between facebook sessions and users, this is because sessions and access tokens can expire. The database is stored in a PostgreSQL database system. Individuals are not stored in this database, they are stored in a Redis server as JSON text. The model for individual is presented in Figure~\ref{redisModel}   
 
 \begin{figure}[!t]
     \centering
@@ -457,7 +457,7 @@ The main view functions for the application are:
 
 \begin{description}
 
-\item[\texttt{evospace()}] This function receives JSON-RPC requests from JQuery code in the client. Main methods are \texttt{getSample() } and \texttt{putSample()}.
+\item[\texttt{evospace()}] This function receives JSON-RPC requests from JQuery code in the client. Main methods are \texttt{getSample() } and \texttt{putSample()}. 
 \item[\texttt{home()}] This view is for the main page, if the user is authenticated the list of friends and profile data is retrieved.
 \item [\texttt{individual\_view()}] This view function returns the details of Individuals.
 \item [\texttt{facebook\_login()}] Initializes the OAuth 2.0 flow. The facebook\_get\_login is also related.
@@ -466,7 +466,7 @@ The main view functions for the application are:
 
 \subsection{Client-Side}
 Client-side scripting is used extensibly by the framework. As mentioned earlier, JQuery is used to implement the evaluation of individuals as shown earlier in Figure~\ref{fig:evoInteractive}, sending \texttt{getSample()} and \texttt{putSample()} requests.  Also the Javascript library processingjs is used to render each individual in its corresponding HTML5 Canvas element. Other controls such as Modal Windows, Lists, Buttons are also implemented using JQuery-UI library.
-
+    
 \subsection{Collections}
 TO-DO
 \section{Example Application}

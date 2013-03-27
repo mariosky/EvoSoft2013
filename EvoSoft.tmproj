@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>currentDocument</key>
-	<string>evospace-i.tex</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -20,44 +18,10 @@
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>200</integer>
 	<key>metaData</key>
-	<dict>
-		<key>evospace-i.bib</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>20</integer>
-				<key>line</key>
-				<integer>430</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>406</integer>
-		</dict>
-		<key>evospace-i.tex</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>204</integer>
-				<key>line</key>
-				<integer>328</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>295</integer>
-		</dict>
-	</dict>
-	<key>openDocuments</key>
-	<array>
-		<string>evospace-i.bib</string>
-		<string>evospace-i.tex</string>
-	</array>
+	<dict/>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{294, 223}, {880, 955}}</string>
+	<string>{{288, 64}, {880, 814}}</string>
 </dict>
 </plist>

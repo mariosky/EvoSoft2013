@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=latex 2013.1.19)  26 MAR 2013 19:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=latex 2013.1.19)  26 MAR 2013 12:01
 entering extended mode
-**evospace-i.tex
-(C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i.tex
+**evospace-i*-*LEO.tex
+("C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i - LEO.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -191,7 +191,7 @@ File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i.aux)
+("C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i - LEO.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
@@ -228,7 +228,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [2]
 File: Architecture.eps Graphic file (type eps)
  <Architecture.eps>
-LaTeX Font Info:    Try loading font information for T1+aett on input line 328.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 293.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
@@ -236,61 +236,54 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 File: evospaceExample.eps Graphic file (type eps)
 
 <evospaceExample.eps>
-Overfull \hbox (12.94499pt too wide) in paragraph at lines 349--350
- [][] 
+Overfull \hbox (12.94499pt too wide) in paragraph at lines 313--314
+ [][][] 
  []
 
 File: evospaceInteractive.eps Graphic file (type eps)
 <evospaceInteractive.eps>
-Overfull \hbox (12.94499pt too wide) in paragraph at lines 358--359
- [][] 
+Overfull \hbox (12.94499pt too wide) in paragraph at lines 322--323
+ [][][] 
  []
 
-[3]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
+[3] [4]
 File: EvoApp.eps Graphic file (type eps)
-
-<EvoApp.eps>
-Overfull \hbox (12.94499pt too wide) in paragraph at lines 416--417
- [][] 
+ <EvoApp.eps>
+Overfull \hbox (12.94499pt too wide) in paragraph at lines 382--383
+ [][][] 
  []
 
 [5]
 File: datamodel.eps Graphic file (type eps)
  <datamodel.eps>
-Overfull \hbox (12.94499pt too wide) in paragraph at lines 444--445
- [][] 
+Overfull \hbox (12.94499pt too wide) in paragraph at lines 410--411
+ [][][] 
  []
 
 File: redisModel.eps Graphic file (type eps)
 <redisModel.eps>
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 460.
+(Font)              using `T1/aett/m/n' instead on input line 426.
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 460--461
-[]\T1/aer/m/n/9 This func-tion re-ceives JSON-RPC re-quests
+Underfull \hbox (badness 1286) in paragraph at lines 426--427
+[][]\T1/aer/m/n/9 This func-tion re-ceives JSON-RPC re-quests
  []
 
-[6] (C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i.bbl) [7]
-(C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i.aux)
+[6] ("C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i - LEO.bbl") [7]
+("C:\Users\Leonardo\Dropbox\EvoSoft2013\evospace-i - LEO.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1947 strings out of 493922
- 22025 string characters out of 3147296
- 82083 words of memory out of 3000000
- 5216 multiletter control sequences out of 15000+200000
+ 1953 strings out of 493922
+ 22172 string characters out of 3147296
+ 83083 words of memory out of 3000000
+ 5222 multiletter control sequences out of 15000+200000
  41065 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 39i,10n,26p,1039b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,1045b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on evospace-i.dvi (7 pages, 48456 bytes).
+Output written on "evospace-i - LEO.dvi" (7 pages, 54888 bytes).

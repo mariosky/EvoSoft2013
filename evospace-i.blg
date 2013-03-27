@@ -1,3 +1,46 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: evospace-i.aux
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: evospace-i.aux
 The style file: abbrv.bst
 Database file #1: evospace-i.bib
+You've used 16 entries,
+            2118 wiz_defined-function locations,
+            613 strings with 6556 characters,
+and the built_in function-call counts, 5843 in all, are:
+= -- 564
+> -- 261
+< -- 10
++ -- 104
+- -- 84
+* -- 405
+:= -- 952
+add.period$ -- 53
+call.type$ -- 16
+change.case$ -- 83
+chr.to.int$ -- 0
+cite$ -- 16
+duplicate$ -- 248
+empty$ -- 475
+format.name$ -- 84
+if$ -- 1259
+int.to.chr$ -- 0
+int.to.str$ -- 16
+missing$ -- 19
+newline$ -- 83
+num.names$ -- 40
+pop$ -- 102
+preamble$ -- 1
+purify$ -- 69
+quote$ -- 0
+skip$ -- 166
+stack$ -- 0
+substring$ -- 337
+swap$ -- 70
+text.length$ -- 10
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 56
+warning$ -- 0
+while$ -- 58
+width$ -- 18
+write$ -- 184

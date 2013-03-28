@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.7.3)  27 MAR 2013 11:59
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.7.3)  27 MAR 2013 21:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -233,11 +233,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: Architecture.eps Graphic file (type eps)
 
 <Architecture.eps> [2]
-Underfull \hbox (badness 10000) in paragraph at lines 294--294
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
 []\secfnt EVOSPACE IN-TER-AC-TIVE EVO-LU-
  []
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 329.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 332.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
@@ -256,37 +256,19 @@ File: redisModel.eps Graphic file (type eps)
  <redisModel.eps>
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 458.
+(Font)              using `T1/aett/m/n' instead on input line 460.
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 458--459
+Underfull \hbox (badness 1286) in paragraph at lines 460--461
 []\T1/aer/m/n/9 This func-tion re-ceives JSON-RPC re-quests
  []
 
 [6]
-Underfull \hbox (badness 2142) in paragraph at lines 495--518
-\T1/aer/m/n/9 of the Fire-works C-IEA is to evolve artis-tic an-i-ma-
- []
-
-
-Underfull \hbox (badness 2111) in paragraph at lines 495--518
-\T1/aer/m/n/9 tions of par-ti-cle swarms in 3D. The an-i-ma-tions are
- []
-
-
-Underfull \hbox (badness 1694) in paragraph at lines 495--518
-\T1/aer/m/n/9 based on the open-source Pro-cess-ing script de-vel-oped
- []
-
-
-Underfull \hbox (badness 1163) in paragraph at lines 519--536
-\T1/aer/m/n/9 mo-some rep-re-sents one of five ba-sic op-er-a-tions, these
- []
-
 File: collection.eps Graphic file (type eps)
-<collection.eps>
+ <collection.eps>
 File: fireworks.eps Graphic file (type eps)
- <fireworks.eps> [7] (./evospace-i.bbl) [8] (./evospace-i.aux)
+ <fireworks.eps> [7] (./evospace-i.bbl) [8]
+(./evospace-i.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -294,10 +276,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  1951 strings out of 493634
  22076 string characters out of 3143401
- 83128 words of memory out of 3000000
+ 84128 words of memory out of 3000000
  5225 multiletter control sequences out of 15000+200000
  41065 words of font info for 55 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 39i,10n,26p,1174b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,10n,26p,1171b,250s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on evospace-i.dvi (8 pages, 57996 bytes).
+Output written on evospace-i.dvi (8 pages, 59080 bytes).

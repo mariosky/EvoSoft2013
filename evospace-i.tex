@@ -61,7 +61,7 @@
 % --- Author Metadata here ---
 %\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
 %\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE. 
+%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
 \title{EvoSpace-i: A framework for Interactive Evolutionary Algorithms}
@@ -181,29 +181,29 @@ and an (ii) \emph{Interactive web application} where end-users collaborate in a 
 \keywords{ Interactive evolutionary computation, Interactive Systems, Cloud-based platforms}
 
 \section{Introduction}
-Currently, evolutionary computation (EC) techniques are applied in a wide variety of different applications and problem domains.
+Currently, evolutionary computation (EC) techniques are applied in a wide variety of applications and problem domains.
 Among them, definitely one of the most intriguing application areas corresponds to what is broadly referred to as evolutionary art or EvoArt  \cite{Bentley:1999:intro,ie1}.
-EvoArt encompasses many works that seek to enhance the design abilities of researchers and even artists by exploiting the powerful search, optimization
+EvoArt encompasses many works that seek to enhance the design abilities of researchers, or even artists, by exploiting the powerful search, optimization
 and learning capabilities of EC algorithms.
 In other words, EvoArt is an attempt by the EC community to enhance the creative process of artists and designers,
 or in a more ambitious scenario, reproduce a similar creative process in an autonomous system.
 
 This goal is not trivial, particularly given the difficulty of modeling and expressing human artistic preferences in a computational system.
-Therefore, one important approach in EvoArt systems is to use interactive evolutionary algorithms (IEA),
-where humans interact with the evolving population in a specific way, particularly to evaluate the quality of the evolving population \cite{ie1,ie2}.
+Therefore, one important approach in EvoArt systems is to use interactive evolutionary algorithms (IEAs),
+where humans interact with the evolving population in a specific way, particularly in evaluating the quality of the evolving population \cite{ie1,ie2}.
 Through the use of IEAs many EvoArt applications have been successfully developed and deployed, as local applications or distributed over the web.
 Indeed, the promise in EvoArt and the quality of the research developed thus far is clear, given the large number of workshops and tutorials that
 are currently part of all of the major EC conferences.
 
 However, there is much work and research questions that still lie in the horizon, issues that are in some instances theoretic while in others they are pragmatic.
-In this work we are concerned with the latter, in particular the current lack of a complete and integrated software tool for rapid development
+In this paper, we are concerned with the latter, in particular the current lack of a complete and integrated software tool for rapid development
 of EvoArt applications.
-The proposed platform is called EvoSpace-Interactive or EvoSpace-i for short, it is aimed at computer scientists who are interested in studying art and design, or at artists that whant
+The proposed platform is called EvoSpace-Interactive or EvoSpace-i for short, it is aimed at computer scientists who are interested in studying art and design, or at artists that want
 to exploit tools from computer science to enhance their abilities.
 Furthermore, EvoSpace-i provides a research and development tool that addresses the following specific issues within EvoArt.
 
 
-Firstly, a common problem in IEAs is what is referred to as user fatigue, when an individual gets tired or simply bored with evaluating a large number of individuals,
+Firstly, a common problem in IEAs is what is referred to as user fatigue \cite{ie1}, when an individual gets tired or simply bored with evaluating a large number of individuals,
 many of which will not be interesting at all.
 EvoSpace-i takes a collaborative approach, where preferences of multiple users are considered and integrated into the evolutionary process,
 thus EvoSpace-i is a collaborative IEA or C-IEA.
@@ -215,7 +215,7 @@ could be finally a main component in the development of automatic artistic desig
 Secondly, the distributed approach proposed in EvoSpace-i follows current trends in software and system development,
 where computational resources are shared across the web and applications are available on heterogenous computational devices.
 This is known as the Cloud computing model, where infrastructure, platforms and applications are shared across the internet.
-EvoSpace-i provides a platform that easily integrates into the the Cloud model, and can be used to develop EvoArt services that reside on the cloud.
+EvoSpace-i provides a platform that easily integrates into the the Cloud model, and can be used to develop EvoArt services that reside on the Cloud.
 Thirdly, an important aspect of EvoArt is the overlap between artists and computer science researchers, individuals that usually have very different
 academic backgrounds. Therefore, EvoSpace-i attempts to integrate design tools that can be used by both.
 In particular, EvoSpace-i exploits the Processing programming language to generate artistic designs,
@@ -224,30 +224,32 @@ since Processing allows for easy representation of images, animations, audio, an
 
 This paper provides a comprehensive presentation of the EvoSpace-i tool, describing the overall goals of the system,
 design principles and implementation details.
-Moreover, two example applications are reviewed, to illustrate how EvoSpace-i could be used for the deployment of distributed collaborative EvoArt systems.
-The remainder of the paper, proceeds as follows. Related Work is discussed in section 2, the general architecture of the framework is next in section 3. Details
-about the components needed to enable the interaction between users and individuals are presented in section 4 and collaboration between users in section 5. Two example applications are presented in section 6, to end with Conclusions in section 7.
- 
+Moreover, two example applications are reviewed, to illustrate how EvoSpace-i could be used for the deployment of distributed and collaborative EvoArt systems.
+The remainder of the paper proceeds as follows. Related Work is discussed in Section  and the general architecture of the framework is presented in Section 3.
+Details about the components needed to enable the interaction between users and individuals are presented in Section 4 and collaboration between users is discussed in Section 5.
+Finally, two example applications are reviewed in Section 6, and final conclusions are given in Section 7.
+
 \section{Related Work}
 \label{sec:related}
-The most common use of evolutionary algorithms, is to search for solutions that are optimal with respect to a specific objective or fitness function that can be computed automatically.
+The most common use of evolutionary algorithms is to search for solutions that are optimal with respect to a specific objective or fitness function that can be computed automatically.
 Conversely, as stated above, in EvoArt the goal is to evolve artistic designs where quality evaluation, almost by definition, will have a large subjective component.
 Therefore, over the years interactive algorithms have been developed and matured \cite{ie1,ie2}.
-However, are not new, indeed some of the earliest EAs were open-ended interactive systems, such as the well-known Biomorphs program \cite{biomorphs}.
-In what follows, relevant examples of interactive systems used in EvoArt are reviled.
-In particular, examples of collaborative systems where many users interact and evaluate an evolving population, guiding the search based on an aggregate of subjective preferences and considerations; what are here referred to as C-IEAs.
+However, interactive algorithms are not new, indeed some of the earliest EAs were open-ended interactive systems, such as the well-known Biomorphs program \cite{biomorphs}.
+In what follows, relevant examples of interactive systems used in EvoArt are reviewed.
+In particular, we give examples of collaborative IEAs (C-IEAs) where many users interact and evaluate an evolving population, where the search is guided
+based on an aggregate of subjective preferences and considerations.
 
 Langdon \cite{langdon:2004} developed one of the first C-IEAs, which evolves fractal representations of virtual creatures within a simulated environment.
 The proposed system is a distributed EA where the evolving population resides on a central server and individuals are distributed
 to remote web-clients using Javascript.
 Users evaluate individuals locally and preferred individuals are returned to the server, at which point they can be distributed to other clients.
 
-More recent examples can be found in the work of Secretan et al. \cite{picbreeder} and Clune and Lipson \cite{forms}, both of whom use a web-based IEA to evolve artistic artifacts
+More recent examples can be found in the work of Secretan et al. \cite{picbreeder} and Clune and Lipson \cite{forms}, both of whom use a web-based IEAs to evolve artistic artifacts
 using a generative encoding.
 In \cite{picbreeder}, the system is used to evolve static images and in \cite{forms} evolved objects are 3-D sculptures.
 Users of the systems can concentrate their search on specific artifacts, and collaboration is encouraged by allowing users to continue an evolutionary lineage created by others
 in a sequential manner.
-Both works offer webpages (see Picbreeder.org and EndlessForms.com),
+Both proposals offer webpages (see Picbreeder.org and EndlessForms.com),
 where users can select or create random individuals and evolve lineages of artifacts.
 Therefore, evolved artifacts can be the product of a collaborative search process.
 Another feature is that evolved artifacts can be rated by users, and since users can create individual accounts, the ratings provide a way to rank users,
@@ -255,7 +257,7 @@ or to select previously evolved artifacts based on the particular style of each 
 Furthermore, the collaborative process is captured by the system, since it is possible to visualize how, and when, different users influenced
 a genetic lineage.
 
-Another example is the work of Kowaliw et al. \cite{evoeco}, where ecosystemic models are evolved also using a generative encoding based on multi-agent systems
+Another example is the work of Kowaliw et al. \cite{evoeco}, where ecosystemic models are evolved using a generative encoding based on multi-agent systems
 that generate high quality artistic drawings.
 Users interact with the system through a website and a Java applet, where they can evolve their own images and have the option
 to add evolved images to a central collection such that other users can see the resulting images.
@@ -279,15 +281,15 @@ Finally, it emphasizes the use of a distributed model, to exploit current trends
 \end{figure*}
 
 \section{Architecture}
-The goal of this work is to develop an open source framework for Web and Cloud-based C-IEA systems, using current web standards and libraries for mobile devices.
+The goal of this work is to develop an open source framework for web and cloud-based C-IEAs, using current web standards and libraries for desktop and mobile devices.
 Developers of C-IEA applications are liberated from the need to design and program a platform for distributed user collaboration.
 Only three components of the framework  must to be defined for each
-application (marked with double lines in Figure \ref{fig:arch}), namely: an \emph{individual} representation; a \emph{processing script} that renders each individual; and a \emph{worker} script that encodes the evolutionary operators will need to be defined according to the representation and problem domain.
+application (marked with double lines in Figure \ref{fig:arch}), namely: an \emph{individual} representation; a \emph{Processing script} that renders each individual; and a \emph{worker} script that encodes the evolutionary operators will need to be defined according to the representation and problem domain.
 However, in future versions of the framework much of this work could be predefined, but also left open for advanced users to change as they require.
-What the framework offers for free is: a central repository for the population implemented as an EvoSpace service; a Web Application script implemented using Django, a mature full stack Web Framework with a BSD license developed in Python.
+What the framework offers for free is: a central repository for the population implemented as an EvoSpace service; and a Web Application script implemented using Django, a mature full stack Web Framework with a BSD license developed in Python.
 
 
-The main components of the EvoSpace-i are shown in Figure~\ref{fig:arch}. The Interactive part is a Django \cite{django} web-based application, together with a client-side component implemented using JQuery and processingjs Javascript libraries. This application shows users a number of multimedia objects rendered in HTML5 Canvas elements. These multimedia objects are the phenotypes of individuals drawn from the Evospace population store. Evospace is responsible for storing and retrieving the data of each individual. An Evolution Worker is responsible for generating new individuals from a sample taken from EvoSpace. The evolution process is decoupled from the interactive application; thous giving IEC designers the opportunity to define their own variations of the algorithm. In the following sections each component is described in detail, staring with the population store Evospace, and then the Interactive and Collaborative components.
+The main components of the EvoSpace-i are shown in Figure~\ref{fig:arch}. The Interactive part is a Django \cite{django} web-based application, together with a client-side component implemented using JQuery and processingjs Javascript libraries. This application shows users a number of multimedia objects rendered in HTML5 Canvas elements. These multimedia objects are the phenotypes of individuals drawn from the Evospace population store. Evospace is responsible for storing and retrieving the data of each individual. An Evolution Worker is responsible for generating new individuals from a sample taken from EvoSpace. The evolution process is decoupled from the interactive application; thus giving designers the opportunity to define their own variations of the algorithm. In the following sections each component is described in detail, staring with the population store Evospace, and then the interactive and collaborative components.
 
 
 
@@ -296,37 +298,38 @@ In this section, the components needed to enable the interaction between users a
 
 
 \subsection{EvoSpace} % debería ser EvoSpace-i - JJ
-The EvoSpace model is presented in detail in \cite{EvoSpace}, only
+The EvoSpace model is presented in detail in \cite{EvoSpace}, only a
 brief description of the functionality related to this work is given
 next.  EvoSpace is inspired on the Linda language by Gelernter and
 Carriero \cite{linda}; Linda is a model of coordination and
 communication among several parallel processes operating upon objects
 stored in and retrieved from a shared, virtual, associative memory
-called {\em tuplespace}. In a tuplespace, tuples are read and removed by processes; once a tuple is taken, no other process can read it until it is written back. EvoSpace consists of two main components (see figure~\ref{fig:evo}):\begin{itemize}
-\item the EvoSpace container
+called {\em tuplespace}. In a tuplespace, tuples are read and removed by processes; once a tuple is taken, no other process can read it until it is written back. Similarly EvoSpace consists of two main components (see figure~\ref{fig:evo}):\begin{itemize}
+\item The EvoSpace container
 that stores the evolving population and
-\item remote clients called
+\item Remote clients called
 EvoWorkers, % ajústate a la terminología del abstract, "Evospace" +
             % "interactive" o "EvoStorage + EvoWorkers" - JJ
 which execute the actual evolutionary process, while EvoSpace acts
 only as a population repository.
 
 \end{itemize}
+
 Figure~\ref{fig:evo} illustrates the main components and dataflow within EvoSpace.
-In a basic configuration, EvoWorkers take a random population sample from EvoSpace, 
+In a basic configuration, EvoWorkers take a random population sample from EvoSpace,
 and use it as the initial population for a local EA
 executed on the client machine. After a certain number of local generations, the
 evolved population is returned to EvoSpace to replace the sample.
 When taken by an EvoWorker,
 individuals  remain in a phantom state until their sample is
-returned. If an EvoWorker does not returns a sample in a certain
+returned. When individuals are in this phantom state, they cannot be taken by other workers. If an EvoWorker does not returns a sample in a certain
 amount of time, for instance because of a lost connection; individuals
 are re-spawned (re-inserted) by the ReInsertionManager. Similar to
 video games in which characters once killed are re-spawned after a
 certain time. This can also happen when the EvoSpace container starves
-or the population size is below some threshold. 
+or the population size is below some threshold.
 
-For this version of EvoSpace-i, a new type of Worker is needed: Human users. Users are responsible for evaluating the quality of individuals, the process is depicted in Figure~\ref{fig:evoInteractive}: (i) first a random sample of six individuals are taken from EvoSpace, (ii) the chromosome of each individual parameterizes a Processing script, that renders to the user, (iii) users select those individuals they like, this is stored in each individual's data, (iv) finally the sample is returned to EvoSpace. The fitness assigned to each individual can depend on the ratings given by a certain number of users. In this case the EvoWorker process is replaced  by an \texttt{Evolve()} method, that is executed after a certain number of samples have been returned.
+For this version of EvoSpace-i, a new type of Worker is needed: Human users. Users are responsible for evaluating the quality of individuals, the process is depicted in Figure~\ref{fig:evoInteractive}: (i) first a random sample of six individuals are taken from EvoSpace, (ii) the chromosome of each individual parameterizes a Processing script, that renders to the user, (iii) users select those individuals they like, this is stored in each individual's data, (iv) finally the sample is returned to EvoSpace. The fitness assigned to each individual can depend on the ratings given by a certain number of users. In this case the Evo Worker process is replaced  by an \texttt{Evolve()} method, that is executed after a certain number of samples have been returned.
 Unlike the normal operation of EvoSpace, when a user takes a sample of individuals, these are returned with their identity unchanged, other than the rating added by the current user. The internal representation of individuals is presented next.
 
 \subsection{Individuals} % Por qué paragraph y no subsection? Además,
@@ -337,13 +340,13 @@ numbers, strings, lists, tuples or other dictionaries.
 In the current implementation, individuals are described by the following basic fields.
 An \textbf{id} string that represents a unique identifier for each object.
 A \textbf{chromosome} string, which depends on the EA and the representation used.
-The \textbf{fitness} dictionary for each individual; In EvoSpace-i it stores pairs of user's ids and timestamp values, which represent that a user has rated the individual with a like. Currently a user can rate more than one time each individual.
+The \textbf{fitness} dictionary for each individual; In EvoSpace-i it stores pairs of user's ids and timestamp values, which represent that a user has rated the individual with a like. Currently a user can rate each individual more than one time.
 The \textbf{views} The number of times the individual has been presented to a user. If a user has seen an individual and  did not assigned it a like, this can be used as a probable not-like rating.
 A \textbf{parents} dictionary with identifiers of the individual(s) from which it was produced.
 Finally, a \textbf{GeneticOperator}  string that specifies the operator that produced it.
 
 
-Individuals are stored in-memory, using the Redis key-value database. Redis was chosen over a SQL-based management system, or other non-SQL alternatives, because it provides a hash based implementation of sets and queues which are natural data structures for the EvoSpace model. For example, selecting a random key from a set has a complexity of O(1). The logic of EvoSpace is implemented as a python module exposed by the same Django framework used by the web-based application. The EvoSpace web service interacts is called directly by a JQuery script running in the client-side. This is done by a JQuery ajax request, and using the  JSON-RPC protocol.  The EvoSpace module is available with a Simplified BSD License from \url{https://github.com/evoWeb/EvoSpace}.  The components required for the interaction between individuals and users are presented next.
+Individuals are stored in-memory, using the Redis key-value database. Redis was chosen over a SQL-based management system, or other non-SQL alternatives, because it provides a hash based implementation of sets and queues which are natural data structures for the EvoSpace model. For example, selecting a random key from a set has a complexity of O(1). The logic of EvoSpace is implemented as a python module exposed by the same Django framework used by the web-based application. This is done by a JQuery ajax request, and using the  JSON-RPC protocol.  The EvoSpace module is available with a Simplified BSD License from \url{https://github.com/evoWeb/EvoSpace}.  The components required for the interaction between individuals and users are presented next.
 
 \begin{figure}[!t]
     \centering
@@ -370,25 +373,24 @@ Processing is a subset of Java directed to novice programmers and generative art
 As a complement there is a javascript library \emph{processingjs} that allows Processing scripts to be run by any HTML5 compatible browser.
 Processing scripts are responsible of rendering individuals which can involve animations, sound or even interactive artifacts.
 Before calling the \texttt{draw()} method of the processing script a local array of parameters are replaced with those of each individual's chromosome.
-Each individual's script has its own Canvas entity; defined by the HTML5 standard, as an element that provides scripts with a resolution-dependent bitmap canvas which can be used for rendering graphics on the fly.
+Each individual's script has its own Canvas entity;
 Although the combination of an HTML5 Canvas element and a Processing script is supported by default, other combinations could be used.
 For instance, images, embedded audio, or other libraries capable of drawing in the Canvas.
 Also, a fallback implementation must be considered for applications intended for non-HTML5 capable browsers.
-
 To create a new C-IEC application, the  rendering script must be defined, and its parameters encoded as a chromosome.
 
 
 \subsection{Fitness}
-As stated before, the assignment of the fitness for each individual takes into account the evaluation given by several users. Initially in EvoSpace-i users can only give positive evaluations explicitly when they select an individual, giving it a rating of \emph{Like}.
-When a user evaluates a sample of individuals, some (or all) of them will not receive a like, in each case the \texttt{views} property will be incremented by 1. For instance, if an individual has a high number of views with with only two likes, he considered to be  worse than an individual with two views and two likes. The ratio $Likes/Views$ is more informative, but it does not distinguish between an individual with many views and another with only
-one view if they both have zero likes; also views must be >=1 to avoid dividing by zero. Fitness, therefore, it is proposed to be given by $(Likes+1)/(Views+1)$. As a future work more options can be defined, for instance taking into account the number of ``shares'' or the times an individual has been stored in a collection.
+As stated before, the assignment of the fitness for each individual takes into account the evaluation given by several users. In this version of EvoSpace-i users can only give positive evaluations explicitly when they select an individual, giving it a rating of \emph{Like}.
+When a user evaluates a sample of individuals, some (or all) of them will not receive a Like, in each case the \texttt{views} property will be incremented by 1. For instance, if an individual has a high number of views with only two likes, he is considered to be worse than an individual with two views and two likes. The ratio $Likes/Views$ is more informative, but it does not distinguish between an individual with many views and another with only
+one view if they both have zero likes; also views must be >=1 to avoid dividing by zero. Fitness, therefore, is given by $(Likes+1)/(Views+1)$.
+As a future work more options can be defined, for instance taking into account the number of ``shares'' or the times an individual has been stored in a collection.
 
 \subsection{Breeding Process}
-
-Once individuals have been evaluated by a minimum number of users, these can participate in the breeding process. As the genetic operators of the evolution process, will depend of the particular application; this algorithm must be implemented in python. Python libraries as DEAP or PyEvolve can be used for this purpose. Both examples presented in this work were implemented using only the NumPy library for array operations. As this process is executed in the server, the communication with EvoSpace-Redis is directly through a library. Only clients connect to the Web Service. There are a few additional parameters that are used for the \texttt{Evolve()} method: \texttt{EVOLUTION-INTERVAL} indicates the number of that must returned to trigger an \texttt{Evolve()} call; the  \texttt{SAMPLE-SIZE} parameter indicates how many individuals are taken from EvoSpace to participate in the Evolution, \texttt{MINIMUM-VIEWS} is the minimum views needed for each individual to participate in the breeding process.
+Once individuals have been evaluated by a minimum number of users, they can participate in the breeding process. Since the genetic operators of the evolutionary process will depend on the particular application, they must be implemented by the application designer. For this purpose, in the current version they are implemented in Python, allowing users to use libraries such as DEAP or PyEvolve. For example, both examples presented in this work were implemented using only the NumPy library for array operations. As this process is executed in the server, the communication with EvoSpace-Redis is done directly through a library. There are a few additional parameters that are used for the \texttt{Evolve()} method: \texttt{EVOLUTION-INTERVAL} indicates the number of samples that must returned to trigger an \texttt{Evolve()} call; the \texttt{SAMPLE-SIZE} parameter indicates how many individuals are taken from EvoSpace to participate in \texttt{Evolve()}, \texttt{MINIMUM-VIEWS} is the minimum views needed for each individual to participate in the breeding process.
 
 \section{Collaboration}
-Using their Facebook account, users can collaborate with their Facebook friends, sharing those individuals they like, or taking individual from the collections of friends, as an introduction to this section de general user experience is described next.
+Using their Facebook account, users can collaborate with their Facebook friends, sharing those individuals they like, or by taking individuals from the collections of friends. As an introduction to this section de general user experience is described next.
 
 \subsection{User Interface.}
 Users interact with the web interface depicted in Figure \ref{fig:web}, which is composed of five elements.
@@ -401,8 +403,8 @@ He can click on the individuals he prefers, a clicked image is highlighted and t
 Additionally, a user can choose to add an image to one of their \emph{Collections}.
 A collection is a special directory to store individuals a user prefers and wishes to save. After the user finishes interacting with the current crop of individuals on the Wall, he can choose to retrieve a new sample from EvoSpace.
 This is done with the fourth element of the interface, located at the top of the screen, the \emph{GetMore} button.
-The button returns the current group of individuals to EvoSpace, and brings back a new one.
-Each time a user performs a \emph{GetMore} click, it increments the number of samples returned, and this could  trigger a server-side \emph{Evolve()} method. The fifth element of the interface is shown at the bottom left corner, the \emph{Collections} section.
+The button first returns the current group of individuals to EvoSpace, and brings back a new one.
+Each time a user performs a \emph{GetMore} click, it increments the number of samples returned, and this could  trigger a server-side \texttt{Evolve()} method. The fifth element of the interface is shown at the bottom left corner, the \emph{Collections} section.
 The user can create several collections, to group and organize his favorite artifacts.
 Moreover, a user can browse the content of each collection and from there share images through the social network.
 When a user browses over an individual a detail pane shows how many users have liked the individual.
@@ -423,19 +425,19 @@ Applications developed with the EvoSpace-i framework must be defined as Facebook
 
 	\item Applications. Facebook applications are also common, popular applications like Youtube, Pinterest, Netflix, XBOX Live and Spotify allow users to share their activities.	
 \end{itemize}
-In order to enable the application's collaborative functionality, end-users must be authenticated with their Facebook account. This is done using the OAuth2.0 protocol \cite{hammer2011oauth}. The OAuth 2.0 login flow generates an access token, which you can use to make API calls on behalf of a user. As part of this flow, users also give certain permissions to the application, so it can access their private data. Currently the framework uses the most basic permission, having access only to their public profile and list of friends. The public profile includes their profile picture, username, gender and locale. An important information is the list of friends, that includes which friends also have the application installed.
+In order to enable the application's collaborative functionality, end-users must be authenticated with their Facebook account. This is done using the OAuth2.0 protocol \cite{hammer2011oauth}. The OAuth 2.0 login flow generates an access token, which allows the application to make API calls on behalf of a user. As part of this flow, users also give certain permissions to the application, so it can access their private data. Currently the framework uses the most basic permission, having access only to their public profile and list of friends. The public profile includes their profile picture, username, gender and locale. An important information is the list of friends, that includes which friends also have the application installed.
 
 \subsection{Django Framework Application}
-The Django web development framework \cite{django}, is a set of Python libraries, that provide high-level abstractions of common Web development patterns. In Django a web application consists of different python scripts following a Model-View-Controller (MVC) design pattern. Using a separation of concerns design principle, the application logic is separated in mainly in four scripts:
+The Django web development framework \cite{django}, is a set of Python libraries, that provide high-level abstractions of common web development patterns. In Django a web application consists of different python scripts following a Model-View-Controller (MVC) design pattern. Using a separation of concerns design principle, the application logic is separated mainly in four scripts:
 \begin{itemize}
-	\item The \texttt{models.py} script contains a class based description of the database schema. These classes are Object-Relational mappers with methods to create, retrieve, update, and delete records in your database using Python code instead of SQL.
-	\item The \texttt{views.py} file contains the business logic for each web page defined as special  ``View'' functions. These functions receive as parameters and http request data, do operations on the model (database) , and return the data to feed HTML generator templates.
+	\item The \texttt{models.py} script contains a class based description of the database schema. These classes are Object-Relational mappers with methods to create, retrieve, update, and delete records in the database system using Python code instead of SQL.
+	\item The \texttt{views.py} file contains the business logic for each web page defined as special  ``View'' functions. These functions receive as parameters and http request data, do operations on the model (database) , and return the data through HTML generator templates.
 	\item The \texttt{urls.py} file specifies which view is called for a given URL pattern.
     \item Various HTML template files that describes the design of the page.
-    \item \texttt{settings.py} file where the configuration of the project is stored.
+    \item The \texttt{settings.py} file is where the configuration of the project is stored.
 \end{itemize}
 
-In Django, a project can be an aggregation of multiple reusable applications, each incorporating a particular functionality. Each application has its own model, and views. For EvoSpace-i the database model is presented in Figure~\ref{datamodel}. There is a many to one relationship between facebook sessions and users, this is because sessions and access tokens can expire. The database is stored in a PostgreSQL database system. Individuals are not stored in this database, they are stored in a Redis server as JSON text. The model for individual is presented in Figure~\ref{redisModel}
+In Django, a project can be an aggregation of multiple reusable applications, each incorporating a particular functionality. Each application has its own model and views. For EvoSpace-i the database model is presented in Figure~\ref{datamodel}. There is a many to one relationship between Facebook sessions and users, this is because sessions and access tokens can expire. The database is stored in a PostgreSQL database system. Individuals are not stored in this database, they are stored in a Redis server as JSON text strings. The model for individual is presented in Figure~\ref{redisModel}
 
 \begin{figure}[!t]
     \centering
@@ -451,22 +453,22 @@ In Django, a project can be an aggregation of multiple reusable applications, ea
     \label{redisModel}
 \end{figure}
 
-The main view functions for the application are:
+The main views for the application are:
 
 \begin{description}
 
 \item[\texttt{evospace()}] This function receives JSON-RPC requests from JQuery code in the client. Main methods are \texttt{getSample() } and \texttt{putSample()}.
 \item[\texttt{home()}] This view is for the main page, if the user is authenticated the list of friends and profile data is retrieved.
-\item [\texttt{individual\_view()}] This view function returns the details of Individuals.
-\item [\texttt{facebook\_login()}] Initializes the OAuth 2.0 flow. The facebook\_get\_login is also related.
+\item [\texttt{individual\_view()}] This view returns the details of Individuals.
+\item [\texttt{facebook\_login()}] Initializes the OAuth 2.0 flow. The \texttt{facebook\_get\_login} is also related.
 \item [\texttt{dashboard()}] Returns a JQuery dashboard page, for administration of EvoSpace.
 \end{description}
 
 
-Client-side scripting is used extensibly by the framework. As mentioned earlier, JQuery is used to implement the evaluation of individuals as shown earlier in Figure~\ref{fig:evoInteractive}, sending \texttt{getSample()} and \texttt{putSample()} requests.  Also the Javascript library processingjs is used to render each individual in its corresponding HTML5 Canvas element. Other controls such as Modal Windows, Lists, Buttons are also implemented using JQuery-UI library.
+Client-side scripting is used extensively by the framework. As mentioned earlier, JQuery is used to implement the evaluation of individuals as shown earlier in Figure~\ref{fig:evoInteractive}, sending \texttt{getSample()} and \texttt{putSample()} requests.   Other controls such as Modal Windows, Lists, Buttons are also implemented using JQuery-UI library.
 
 \subsection{Collections}
-An important feature of the framework, is that authenticated users can create collections where they can store individuals. These collections can be private or public. Public collections can be visited by Facebook friends and if they wish, they can store individuals to their own collections. In future versions, users could also publish individuals to their Facebook Timeline or Photo Albums. Giving a sense of ownership (or in future versions authorship) to users, could be considered as a reward to their effort. This could also increase the voluntary participation of users. Information about how an individual is stored and shared, could be considered in the assignment of fitness. This way sharing can be part of the evolution. Collections are implemented as part of the web application, the database model is presented in Figure~\ref{datamodel}, there is a many to many relationship between users and collections, this way there can be shared collections, this is not yet implemented in the current version.  A collection can have many individuals, if the individual comes from another collection there is a relation with that collection. 
+An important feature of the framework, is that authenticated users can create collections where they can store individuals. These collections can be private or public. Public collections can be visited by Facebook friends and if they wish, they can save individuals to their own collections. In future versions, users could also publish individuals to their Facebook Timeline or Photo Albums. Giving a sense of ownership (or in future versions authorship) to users, could be considered as a reward to their effort. ß could also increase the voluntary participation of users. Information about how an individual is stored and shared, could be considered in the assignment of fitness. This way sharing can be part of the evolution. Collections are implemented as part of the web application, the database model is presented in Figure~\ref{datamodel}, there is a many to many relationship between users and collections, this way there can be shared collections, this is not yet implemented in the current version.  A collection can have many individuals, if the individual comes from another collection there is a relation with that collection.
 
 \section{Example Applications}
 As a proof of concept a C-EIA application was implemented with the EvoSpace-i framework, this application is detailed in \cite{Musart}. The application is called \emph{Shapes}. In \emph{Shapes}, individuals represent a two dimensional 11 by 6 array of equilateral triangles, these arrays where inspired by Op-Art style paintings.
@@ -481,7 +483,7 @@ Crossover operators are used with crossover rate of 1, these are vertical and ho
 Several mutations are used with a mutation rate of 0.3, these are:
 (1) single \emph{point mutation}; (2) vertical and horizontal \emph{mirrors} at a random point;
 (3) \emph{shuffle} that gives a new permutation of the chromosome.
-In nearly two weeks of operation, there is a total of 70 active users, users who gave permissions to the \emph{Shapes} application and haven't
+In nearly two weeks of operation, there wa a total of 70 active users, users who gave permissions to the \emph{Shapes} application and haven't
 removed it from their Facebook account.
 Facebook dashboard reports that 74 percent of users accepted the permission request to use their credentials to login onto \emph{Shapes}.
 Participation of anonymous users was permitted, but their number was not recorded.
@@ -490,13 +492,11 @@ An auto-increment id was assigned to each individual, after two weeks the highes
 A total of 17449 samples were taken from the EvoSpace server after the two week trial. A sample of artistic artifacts in a collection is depicted in Figure \ref{fig:collection}.
 
 
-
-
-Another example application is \emph{Fireworks}. The goal of the Fireworks C-IEA is to evolve artistic animations of particle swarms in 3D. The animations are based on the open-source Processing script developed by Claudio Gonzales called Galactic Dust available at http://www.openprocessing.org/sketch/8062,
-licensed under Creative Commons Attribution-Share Alike 3.0 and GNU GPL license. The Galactic Dust script presents a virtual 3D canvas where a set of N particles can move
+Another example application is called \emph{Fireworks}. The goal of the Fireworks C-IEA is to evolve artistic animations of particle swarms in 3D. The animations are based on the open-source Processing script developed by Claudio Gonzales called Galactic Dust available at \url{http://www.openprocessing.org/sketch/8062} and
+licensed under Creative Commons Attribution-Share Alike 3.0 and GNU GPL license. The Galactic Dust script presents a virtual 3D canvas where a set of $N$ particles can move
 about. In the original version of the script the particles are
 randomly positioned within the 3D canvas (or placed in an
-a priori pattern) and remain static. Then, when the user leftclicks
+a priori pattern) and remain static. Then, when the user left clicks
 on a point within the canvas this specifies the position
 of a gravitational point P on the canvas and produces an
 attractive force on all of the particles towards P, proportional
@@ -511,12 +511,12 @@ the artistic animations evolved by the Fireworks application.
 In particular, the goal of Fireworks is to begin with randomly
 placed particles and to evolve a pattern of movements and
 behaviors, searching for interesting visual animations. These
-animations are similar to popular screensavers or background
+animations are similar to popular screen savers or background
 visualizations for music players, however the authors feel that
 an illustrative description is to say that they resemble elaborate
-fireworks displays, thus the name. 
+fireworks displays, thus the name.
 
-The chromosome of each individual
+Fireworks is based on a linear genetic programming algorithm, where the chromosome of each individual
 is encoded as a variable-length list. Each element,
 or gene, of the chromosome represents one of five basic
 operations, these are: $Attract_{flag}$, $Move_{flag}$, $Trace_{flag}$,
@@ -543,7 +543,7 @@ to progressively incorporate the preferences of several users.
 There is no time-table to halt the open-ended evolutionary
 process, and the system is expected to run for at least one
 more month. It is now possible to access the application and
-interact with it at http://app.evospace.org/. It is important to
+interact with it at \url{http://app.evospace.org/}. It is important to
 point out that the Processing scripts evolved in this work
 are computationally costly, and push browser resources to the
 limit. Only the Chrome web browser offers an acceptable
@@ -566,11 +566,23 @@ shows a series of frames from a singled evolved animation.
 \end{figure}
 
 \section{Conclusions}
-Initial results are encouraging, the EvoSpace-i framework was successfully used to deploy a C-IEA that users accepted and used to design artistic artifacts.
-Since the system integrates with a popular social network, the framework promotes the collaborative evolution of artistic memes,
-leveraging the insights of multiple users in a parallel and asynchronous manner. The platform enables the collaborative assignment of fitness and provides researchers with relevant contextual information about the process, that can be considered not only in the evaluation step, but also by the system as a whole, allowing a better understanding of user behavior and preferences.
-Moreover, through the use of the Processing language, and easy to develop representation of artistic artifacts is possible,
-the possibilities of which were not yet pushed to the limit by the simple Shapes application, the main topic of future work and research. Nonetheless, the paper presents the first attempt to build a tool that facilitates the development and deployment of C-IEA for evolutionary art.
+EvoArt is growing and expanding as a sub-field of EC, with dedicated workshops and tracks in all major EC conferences.
+It differentiates itself from other areas by incorporating truly varied perspectives, from subjective artists and designers and objective
+computer scientists.
+Moreover, EvoArt is more than just an intriguing application area of EC, it might be able to offer insights regarding how best to aid, model, and perhaps reproduce,
+probably one of the most studied and least understood human abilities: artistic creativity.
+Through EvoArt systems, it might become possible to develop systems where mental mems are distributed and reproduce in an artificial substrate.
+
+This paper presents EvoSpace-i, the first computational tool specifically aimed at the EvoArt community, particularly those interested in C-IEAs.
+EvoSpace-i offers several general features that are desirable in an EvoArt system; such as:
+an interactive approach towards evaluation; a distributed system that exploits the web and can be integrates with current Cloud-based approaches towards computing;
+a collaborative system where evolution is guided by the preferences of all users, and where collaboration is encouraged by integrating social networking;
+finally, EvoSpace-i renders artistic artifacts using the Processing programming language, that reduces the steepness of the learning curve for non-programmers,
+since the tool is meant to promote and establish collaborative work between artists, designers and computer scientists. 
+
+Initial results are encouraging, the EvoSpace-i framework was successfully used to deploy two C-IEAs that users accepted and used to design artistic artifacts.
+However, the true possibilities have not been pushed to the limit by the Shapes or Fireowrks applications described here, one of the main areas of future work and research.
+Nonetheless, the paper presents the first attempt to build a tool specifically for the development of C-IEAs for evolutionary art.
 
 
 %\end{document}  % This is where a 'short' article might terminate
